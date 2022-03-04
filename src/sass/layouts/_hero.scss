@@ -1,0 +1,21 @@
+.main {
+}
+.section-hero {
+  &__box {
+    width: 90%;
+    min-height: 30px;
+    border-radius: 30px;
+    border: solid 1px red;
+    margin: 0 auto;
+  }
+}
+
+.hero-button {
+  display: flex;
+  margin: 30px auto 30px auto;
+}
+
+.box-section-hero {
+  &__text {
+  }
+}

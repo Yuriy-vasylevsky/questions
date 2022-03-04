@@ -1,0 +1,26 @@
+.button {
+  font-weight: 800;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+
+  border-radius: 5px;
+  padding: 14px 30px 14px 30px;
+  color: #fcfdfe;
+  background-color: #ec5863;
+  transition: background-color 300ms;
+  display: inline-block;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: #f58990;
+  }
+}
+
+.button_blue {
+  background-color: #4285f4;
+
+  &:hover {
+    background-color: #699ff7;
+  }
+}
