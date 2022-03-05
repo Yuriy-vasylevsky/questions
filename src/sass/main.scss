@@ -2,9 +2,10 @@
 @import './base/common';
 @import './base/container';
 @import './layouts/hero';
+@import './layouts/header';
 
 .title {
   color: rgb(148, 86, 86);
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
 }
