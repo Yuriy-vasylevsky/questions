@@ -93,3 +93,27 @@ import './sass/main.scss';
 
 // refs.startBtn.addEventListener(`click`, question.createRender.bind(question));
 // refs.stopBtn.addEventListener(`click`, question.stop.bind(question));
+
+const refs = {
+  morBtn: document.querySelector('.top-button'),
+  morText: document.querySelector('.top_text-mor'),
+  morRemoveBtn: document.querySelector('.top-button-remove'),
+};
+
+refs.morBtn.addEventListener(`click`, start);
+
+function start() {
+  refs.morText.classList.remove(`block`);
+  refs.morBtn.classList.add(`block`);
+
+  refs.morRemoveBtn.classList.remove(`block`);
+}
+
+refs.morRemoveBtn.addEventListener(`click`, stop);
+
+function stop() {
+  refs.morText.classList.add(`block`);
+  refs.morBtn.classList.remove(`block`);
+
+  refs.morRemoveBtn.classList.add(`block`);
+}
