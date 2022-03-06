@@ -11,6 +11,7 @@
 }
 
 .hero {
+  background: #23252b;
   padding-top: 20px;
   &__container {
     display: flex;
@@ -55,8 +56,9 @@
 }
 
 .top {
+  background: #212428;
   &_text {
-    font-size: 24px;
+    font-size: 14px;
     line-height: 1.25;
     text-transform: capitalize;
     color: #989ca2;
@@ -68,14 +70,45 @@
   &__title {
     padding-top: 20px;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 20px;
     line-height: 1.5;
     text-transform: capitalize;
     color: #cedff6;
     text-align: center;
+    padding-bottom: 15px;
   }
 }
 
 .block {
   display: none;
+}
+
+.top-button-remove {
+  margin-top: 15px;
+}
+
+.top-button {
+  margin-top: 15px;
+}
+
+.decor-1 {
+  position: absolute;
+  top: 140px;
+  left: 50px;
+  width: 150px;
+  height: 130px;
+  background: rgba(203, 71, 160, 0.3);
+  filter: blur(100px);
+  border-radius: 50%;
+}
+
+.decor-2 {
+  position: absolute;
+  top: 500px;
+  right: 50px;
+  width: 150px;
+  height: 130px;
+  background: rgba(0, 255, 133, 0.2);
+  filter: blur(100px);
+  border-radius: 50%;
 }
