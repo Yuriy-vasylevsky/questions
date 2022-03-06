@@ -9,3 +9,47 @@
   text-align: center;
   font-size: 30px;
 }
+
+.hero {
+  padding-top: 20px;
+  &__container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__cards {
+  }
+}
+
+.cards-hero {
+  width: 200px;
+  height: 300px;
+
+  background: #23252b;
+  box-shadow: -4px 4px 18px rgba(0, 0, 0, 0.43);
+  border-radius: 10px;
+
+  @media screen and (max-width: 480px) {
+    max-width: 200px;
+    height: 260px;
+  }
+
+  &__link {
+  }
+
+  &__img {
+  }
+
+  &__text {
+    padding-top: 15px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #ffffff;
+    text-align: center;
+  }
+}
+
+.cards-hero:not(:last-child) {
+  margin-right: 20px;
+}
