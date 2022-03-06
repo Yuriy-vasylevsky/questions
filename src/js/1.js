@@ -68,10 +68,11 @@ class Questions {
     if (this.isActive) {
       return;
     }
+    refs.text.textContent = this.counter += 1;
 
     this.intervalid = setInterval(() => {
       this.isActive = true;
-      refs.text.textContent = this.counter += 1;
+
       refs.box.textContent = '';
       const index = this.getRandomInRange(0, questions.length - 1);
 
@@ -83,8 +84,8 @@ class Questions {
 
   stop() {
     this.isActive = false;
-    this.counter = 0;
-    refs.text.textContent = 0;
+    // this.counter = 0;
+    // refs.text.textContent = 0;
     clearTimeout(this.intervalid);
   }
 }

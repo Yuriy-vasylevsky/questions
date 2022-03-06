@@ -2,15 +2,35 @@
   background: #212428;
   height: 100vh;
 }
+
+.title {
+  // padding-top: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.5;
+  text-transform: capitalize;
+  color: #cedff6;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
 .section-hero {
-  padding-top: 80px;
+  padding-top: 10px;
+
   &__box {
     width: 90%;
     min-height: 30px;
     border-radius: 30px;
-    border: solid 1px red;
+    // border: solid 1px #ff014f;
+    background: #23252b;
+    box-shadow: -4px 4px 18px rgba(0, 0, 0, 0.43);
+    border-radius: 10px;
     margin: 0 auto;
   }
+}
+
+.section-hero-btn {
+  display: flex;
 }
 
 .hero-button {
@@ -20,5 +40,20 @@
 
 .box-section-hero {
   &__text {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
+}
+
+.text {
+  font-size: 20px;
+  margin-top: 15px;
+  padding-top: 13px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid red;
+  // transform: rotate(90deg);
+  border-radius: 50%;
 }
