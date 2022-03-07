@@ -44,7 +44,7 @@ const questions = [
 //   return Math.floor(Math.random() * (max - min + 1)) + min;
 // }
 
-refs.box.textContent = 'Нажми на кнопку';
+refs.box.textContent = 'Нажми на start';
 
 // function start() {
 //   // let random = getRandomInRange(0, 8);
