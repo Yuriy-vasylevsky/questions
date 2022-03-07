@@ -182,10 +182,6 @@ class Questions {
     this.arr = [];
   }
 
-  // getRandomInRange(min, max) {
-  //   return Math.floor(Math.random() * (max - min + 1)) + min;
-  // }
-
   rrr(max) {
     var max;
     var rundomnumber;
@@ -201,17 +197,25 @@ class Questions {
   }
 
   createRender() {
-    refs.text.textContent = this.counter += 1;
-    const textForHistory = `<div class="text-for-history">${refs.box.textContent}<div>`;
-
-    this.isActive = true;
-
+    refs.load.classList.remove(`visually-hidden`);
+    refs.load.classList.add(`load`);
     refs.box.textContent = '';
-    const index = this.rrr(questions.length - 1);
 
-    const r = `<h1 class="title"> ${questions[index]} </h1>`;
-    refs.boxHistory.insertAdjacentHTML('beforeend', textForHistory);
-    return refs.box.insertAdjacentHTML('beforeend', r);
+    this.intervalid = setTimeout(() => {
+      refs.text.textContent = this.counter += 1;
+      const textForHistory = `<div class="text-for-history">${refs.box.textContent}<div>`;
+
+      this.isActive = true;
+
+      refs.box.textContent = '';
+      const index = this.rrr(questions.length - 1);
+
+      const r = `<h1 class="title"> ${questions[index]} </h1>`;
+      refs.boxHistory.insertAdjacentHTML('beforeend', textForHistory);
+      refs.load.classList.remove(`load`);
+      refs.load.classList.add(`visually-hidden`);
+      return refs.box.insertAdjacentHTML('beforeend', r);
+    }, 2000);
   }
 
   stop() {
