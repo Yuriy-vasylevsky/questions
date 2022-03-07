@@ -1,7 +1,7 @@
 import '../sass/main.scss';
 
 const refs = {
-  startBtn: document.querySelector('.hero-button'),
+  startBtn: document.querySelector('.footer-button'),
   stopBtn: document.querySelector('.stop'),
   box: document.querySelector('.box-section-hero__text'),
   text: document.querySelector('.text'),
