@@ -5,6 +5,7 @@ const refs = {
   stopBtn: document.querySelector('.stop'),
   box: document.querySelector('.box-section-hero__text'),
   text: document.querySelector('.text'),
+  boxHistory: document.querySelector('.box-section-hero__texti-history'),
 };
 
 const questions = [
@@ -44,7 +45,7 @@ const questions = [
 //   return Math.floor(Math.random() * (max - min + 1)) + min;
 // }
 
-refs.box.textContent = 'Нажми на start';
+// refs.box.textContent = 'Нажми на start';
 
 // function start() {
 //   // let random = getRandomInRange(0, 8);
@@ -68,7 +69,9 @@ class Questions {
     if (this.isActive) {
       return;
     }
+
     refs.text.textContent = this.counter += 1;
+    const textForHistory = `<div class="text-for-history">${refs.box.textContent}<div>`;
 
     this.intervalid = setInterval(() => {
       this.isActive = true;
@@ -80,6 +83,8 @@ class Questions {
 
       return refs.box.insertAdjacentHTML('beforeend', r);
     }, 50);
+
+    refs.boxHistory.insertAdjacentHTML('beforeend', textForHistory);
   }
 
   stop() {
