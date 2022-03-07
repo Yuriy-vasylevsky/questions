@@ -46,6 +46,7 @@ const questions = [
   `Яким спортом займаєшся?`,
   `Давно був у кіно (театрі, на концерті, на футболі)?`,
   `Правда, що слабкі чоловік бояться сильних жінок?`,
+
   `Як ти ставишся до зрад у шлюбі?`,
   `Часто обманюєш інших?`,
   `Якщо знаєш, що тобe не покарають, яку капость хотів би зробити?`,
@@ -84,7 +85,7 @@ const questions = [
   `Ти часто думаєш “про це?” Є сексуальні фантазії?`,
   `Бачив фільм “50 відтінків сірого”? Ну як тобі?`,
   `Яка частина тіла у тебе найбільш чутлива?`,
-
+  `Любиш експерементувати у ліжку?`,
   `Що краще, лежати на дивані або подорожувати?`,
   `Які 3 речі візьмеш на безлюдний острів?`,
   `Опиши себе п’ятьма словами?`,
@@ -95,6 +96,9 @@ const questions = [
   `Що робиш краще за інших?`,
   `Віриш в життя після смерті?`,
   `Що страшніше: місяць в лісі або місяць без інтернету?`,
+  `Як ти ставишся до відносин на відстані?`,
+  `Хто на твою думку головний у сім’ї?`,
+  `Що вкрали гопніки в Києві у солдат РФ?`,
 ];
 
 // function getRandomInRange(min, max) {
@@ -110,44 +114,112 @@ const questions = [
 //   // return refs.box.insertAdjacentHTML('beforeend', render);
 // }
 
+// class Questions {
+//   constructor() {
+//     this.counter = 0;
+//     this.intervalid = null;
+//     this.isActive = false;
+//   }
+
+//   getRandomInRange(min, max) {
+//     return Math.floor(Math.random() * (max - min + 1)) + min;
+//   }
+
+//   createRender() {
+//     if (this.isActive) {
+//       return;
+//     }
+
+//     refs.text.textContent = this.counter += 1;
+//     const textForHistory = `<div class="text-for-history">${refs.box.textContent}<div>`;
+
+//     this.intervalid = setInterval(() => {
+//       this.isActive = true;
+
+//       refs.box.textContent = '';
+//       const index = this.getRandomInRange(0, questions.length - 1);
+
+//       const r = `<h1 class="title"> ${questions[index]} </h1>`;
+
+//       return refs.box.insertAdjacentHTML('beforeend', r);
+//     }, 50);
+
+//     refs.boxHistory.insertAdjacentHTML('beforeend', textForHistory);
+//   }
+
+//   stop() {
+//     this.isActive = false;
+//     // this.counter = 0;
+//     // refs.text.textContent = 0;
+//     clearTimeout(this.intervalid);
+//   }
+// }
+
+// const question = new Questions({});
+
+// refs.startBtn.addEventListener(`click`, question.createRender.bind(question));
+// refs.stopBtn.addEventListener(`click`, question.stop.bind(question));
+
+// var arr = []; //записываем в этот массив рандомные числа
+// var max = 100; // максимальная длина массива
+// var rundomnumber; //случайное число
+
+// while (arr.length <= max) {
+//   rundomnumber = Math.floor(Math.random() * max); //создадим случайное число
+
+//   if (arr.indexOf(rundomnumber) == -1) {
+//     // проверим есть оно  у нас или нет
+
+//     arr.push(rundomnumber); // записываем в массив т.к нету
+//   }
+// }
+
 class Questions {
   constructor() {
     this.counter = 0;
     this.intervalid = null;
     this.isActive = false;
+    this.arr = [];
   }
 
-  getRandomInRange(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  // getRandomInRange(min, max) {
+  //   return Math.floor(Math.random() * (max - min + 1)) + min;
+  // }
+
+  rrr(max) {
+    var max;
+    var rundomnumber;
+    console.log(this.arr);
+    while (this.arr.length <= max) {
+      rundomnumber = Math.floor(Math.random() * max);
+
+      if (this.arr.indexOf(rundomnumber) == -1) {
+        this.arr.push(rundomnumber);
+        return rundomnumber;
+      }
+    }
   }
 
   createRender() {
-    if (this.isActive) {
-      return;
-    }
-
     refs.text.textContent = this.counter += 1;
     const textForHistory = `<div class="text-for-history">${refs.box.textContent}<div>`;
 
-    this.intervalid = setInterval(() => {
-      this.isActive = true;
+    this.isActive = true;
 
-      refs.box.textContent = '';
-      const index = this.getRandomInRange(0, questions.length - 1);
+    refs.box.textContent = '';
+    const index = this.rrr(questions.length - 1);
 
-      const r = `<h1 class="title"> ${questions[index]} </h1>`;
-
-      return refs.box.insertAdjacentHTML('beforeend', r);
-    }, 50);
-
+    const r = `<h1 class="title"> ${questions[index]} </h1>`;
     refs.boxHistory.insertAdjacentHTML('beforeend', textForHistory);
+    return refs.box.insertAdjacentHTML('beforeend', r);
   }
 
   stop() {
-    this.isActive = false;
-    // this.counter = 0;
-    // refs.text.textContent = 0;
-    clearTimeout(this.intervalid);
+    this.counter = 0;
+    refs.text.textContent = 0;
+    refs.boxHistory.textContent = 'В очікуванні на нові запитання';
+    refs.box.textContent = 'Не зупиняйся, продовжуй використовувати цю чудову программу';
+    this.arr = [];
   }
 }
 

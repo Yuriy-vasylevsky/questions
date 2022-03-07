@@ -53,10 +53,12 @@
   background: #212428;
 
   &_text {
-    font-size: 10px;
-    line-height: 1.25;
-    text-transform: capitalize;
+    font-size: 12px;
+    line-height: 1.1;
+
     color: #989ca2;
+    overflow: hidden;
+    // max-height: 100px;
   }
 
   &__container {
@@ -129,6 +131,7 @@
 
 .section-footer-btn {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
 }

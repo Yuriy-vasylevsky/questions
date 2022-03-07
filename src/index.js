@@ -117,3 +117,20 @@ function stop() {
 
   refs.morRemoveBtn.classList.add(`block`);
 }
+
+// function rrr(max) {
+//   var arr = []; //записываем в этот массив рандомные числа
+//   var max; // максимальная длина массива
+//   var rundomnumber; //случайное число
+
+//   while (arr.length <= max) {
+//     rundomnumber = Math.floor(Math.random() * max); //создадим случайное число
+
+//     if (arr.indexOf(rundomnumber) == -1) {
+//       // проверим есть оно  у нас или нет
+
+//       arr.push(rundomnumber); // записываем в массив т.к нету
+//       return rundomnumber;
+//     }
+//   }
+// }

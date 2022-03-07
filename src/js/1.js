@@ -76,6 +76,9 @@ const questions = [
   `Що робиш краще за інших?`,
   `Віриш в життя після смерті?`,
   `Що страшніше: місяць в лісі або місяць без інтернету?`,
+  `Як ти ставишся до відносин на відстані?`,
+  `Хто на твою думку головний у сім’ї?`,
+  `Що вкрали гопніки в Києві у солдат РФ?`,
 ];
 
 // function getRandomInRange(min, max) {
@@ -96,39 +99,47 @@ class Questions {
     this.counter = 0;
     this.intervalid = null;
     this.isActive = false;
+    this.arr = [];
   }
 
-  getRandomInRange(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  // getRandomInRange(min, max) {
+  //   return Math.floor(Math.random() * (max - min + 1)) + min;
+  // }
+
+  rrr(max) {
+    var max;
+    var rundomnumber;
+    console.log(this.arr);
+    while (this.arr.length <= max) {
+      rundomnumber = Math.floor(Math.random() * max);
+
+      if (this.arr.indexOf(rundomnumber) == -1) {
+        this.arr.push(rundomnumber);
+        return rundomnumber;
+      }
+    }
   }
 
   createRender() {
-    if (this.isActive) {
-      return;
-    }
-
     refs.text.textContent = this.counter += 1;
     const textForHistory = `<div class="text-for-history">${refs.box.textContent}<div>`;
 
-    this.intervalid = setInterval(() => {
-      this.isActive = true;
+    this.isActive = true;
 
-      refs.box.textContent = '';
-      const index = this.getRandomInRange(0, questions.length - 1);
+    refs.box.textContent = '';
+    const index = this.rrr(questions.length - 1);
 
-      const r = `<h1 class="title"> ${questions[index]} </h1>`;
-
-      return refs.box.insertAdjacentHTML('beforeend', r);
-    }, 50);
-
+    const r = `<h1 class="title"> ${questions[index]} </h1>`;
     refs.boxHistory.insertAdjacentHTML('beforeend', textForHistory);
+    return refs.box.insertAdjacentHTML('beforeend', r);
   }
 
   stop() {
-    this.isActive = false;
-    // this.counter = 0;
-    // refs.text.textContent = 0;
-    clearTimeout(this.intervalid);
+    this.counter = 0;
+    refs.text.textContent = 0;
+    refs.boxHistory.textContent = 'В очікуванні на нові запитання';
+    refs.box.textContent = 'Не зупиняйся, продовжуй використовувати цю чудову программу';
+    this.arr = [];
   }
 }
 
