@@ -5,6 +5,7 @@ const refs = {
   stopBtn: document.querySelector('.stop'),
   box: document.querySelector('.box-section-hero__text'),
   text: document.querySelector('.text'),
+  boxHistory: document.querySelector('.box-section-hero__texti-history'),
 };
 
 const questions = [
@@ -44,7 +45,7 @@ const questions = [
 //   return Math.floor(Math.random() * (max - min + 1)) + min;
 // }
 
-refs.box.textContent = 'Нажми на start';
+// refs.box.textContent = 'Нажми на start';
 
 // function start() {
 //   // let random = getRandomInRange(0, 8);
@@ -69,22 +70,27 @@ class Questions {
       return;
     }
 
+    refs.text.textContent = this.counter += 1;
+    const textForHistory = `<div class="text-for-history">${refs.box.textContent}<div>`;
+
     this.intervalid = setInterval(() => {
       this.isActive = true;
-      refs.text.textContent = this.counter += 1;
+
       refs.box.textContent = '';
       const index = this.getRandomInRange(0, questions.length - 1);
 
       const r = `<h1 class="title"> ${questions[index]} </h1>`;
 
       return refs.box.insertAdjacentHTML('beforeend', r);
-    }, 100);
+    }, 50);
+
+    refs.boxHistory.insertAdjacentHTML('beforeend', textForHistory);
   }
 
   stop() {
     this.isActive = false;
-    this.counter = 0;
-    refs.text.textContent = 0;
+    // this.counter = 0;
+    // refs.text.textContent = 0;
     clearTimeout(this.intervalid);
   }
 }
