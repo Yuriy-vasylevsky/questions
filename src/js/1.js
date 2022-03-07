@@ -79,7 +79,7 @@ class Questions {
       const r = `<h1 class="title"> ${questions[index]} </h1>`;
 
       return refs.box.insertAdjacentHTML('beforeend', r);
-    }, 100);
+    }, 50);
   }
 
   stop() {

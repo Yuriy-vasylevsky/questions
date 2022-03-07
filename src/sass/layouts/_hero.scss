@@ -40,9 +40,10 @@
 
 .box-section-hero {
   &__text {
+    position: relative;
+    z-index: 100;
     text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px;
   }
 }
 
