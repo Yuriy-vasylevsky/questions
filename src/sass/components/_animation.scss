@@ -3,11 +3,11 @@ body {
 }
 
 .load {
-  position: absolute;
+  position: fixed;
   width: 600px;
   height: 36px;
   left: 50%;
-  top: 25%;
+  top: 160px;
   margin-left: -300px;
   overflow: hidden;
   -webkit-user-select: none;
@@ -175,4 +175,10 @@ body {
     transform: rotate(-180deg);
     opacity: 0;
   }
+}
+
+.transform {
+  transform: translateY(200px);
+  transition: all 2000ms;
+  opacity: 0;
 }

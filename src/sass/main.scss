@@ -4,6 +4,7 @@
 @import './layouts/hero';
 @import './layouts/header';
 @import './components/animation';
+
 .hero {
   // background: #23252b;
   padding-top: 20px;
@@ -139,4 +140,11 @@
 .text-for-history {
   font-size: 15px;
   padding-bottom: 10px;
+  // transform: translateX(-400px);
+  transition: all 2000ms;
+  opacity: 1;
+}
+
+.text-for-history-transform {
+  // transform: translateX(400px);
 }

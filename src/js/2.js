@@ -6,6 +6,8 @@ const refs = {
   box: document.querySelector('.box-section-hero__text'),
   text: document.querySelector('.text'),
   boxHistory: document.querySelector('.box-section-hero__texti-history'),
+  load: document.querySelector('.animation'),
+  // historyText: document.querySelector('.box-section-hero__texti-history'),
 };
 
 const questions = [
@@ -199,11 +201,11 @@ class Questions {
   createRender() {
     refs.load.classList.remove(`visually-hidden`);
     refs.load.classList.add(`load`);
-    refs.box.textContent = '';
+    refs.box.classList.add(`transform`);
 
     this.intervalid = setTimeout(() => {
       refs.text.textContent = this.counter += 1;
-      const textForHistory = `<div class="text-for-history">${refs.box.textContent}<div>`;
+      const textForHistory = `<div class="text-for-history">${refs.box.textContent}</div>`;
 
       this.isActive = true;
 
@@ -212,8 +214,10 @@ class Questions {
 
       const r = `<h1 class="title"> ${questions[index]} </h1>`;
       refs.boxHistory.insertAdjacentHTML('beforeend', textForHistory);
+      refs.box.classList.remove(`transform`);
       refs.load.classList.remove(`load`);
       refs.load.classList.add(`visually-hidden`);
+      // refs.historyText.classList.add(`text-for-history-transform`);
       return refs.box.insertAdjacentHTML('beforeend', r);
     }, 2000);
   }
