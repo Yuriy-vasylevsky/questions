@@ -7,7 +7,6 @@ const refs = {
   text: document.querySelector('.text'),
   boxHistory: document.querySelector('.box-section-hero__texti-history'),
   load: document.querySelector('.animation'),
-  // historyText: document.querySelector('.box-section-hero__texti-history'),
 };
 
 const questions = [

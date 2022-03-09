@@ -7,7 +7,6 @@ const refs = {
   text: document.querySelector('.text'),
   boxHistory: document.querySelector('.box-section-hero__texti-history'),
   load: document.querySelector('.animation'),
-  // historyText: document.querySelector('.box-section-hero__texti-history'),
 };
 
 const questions = [
@@ -83,19 +82,6 @@ const questions = [
   `Що вкрали гопніки в Києві у солдат РФ?`,
 ];
 
-// function getRandomInRange(min, max) {
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
-
-// refs.box.textContent = 'Нажми на start';
-
-// function start() {
-//   // let random = getRandomInRange(0, 8);
-//   // refs.box.textContent = '';
-//   // const render = `<h1 class="title"> ${questions[random]} </h1>`;
-//   // return refs.box.insertAdjacentHTML('beforeend', render);
-// }
-
 class Questions {
   constructor() {
     this.counter = 0;
@@ -104,7 +90,7 @@ class Questions {
     this.arr = [];
   }
 
-  rrr(max) {
+  rundomaizer(max) {
     var max;
     var rundomnumber;
     console.log(this.arr);
@@ -118,27 +104,45 @@ class Questions {
     }
   }
 
-  createRender() {
+  startAnimation() {
     refs.load.classList.remove(`visually-hidden`);
     refs.load.classList.add(`load`);
     refs.box.classList.add(`transform`);
+  }
+
+  stopAnimation() {
+    refs.box.classList.remove(`transform`);
+    refs.load.classList.remove(`load`);
+    refs.load.classList.add(`visually-hidden`);
+  }
+
+  renderTextHistory() {
+    const textForHistory = `<div class="text-for-history">${refs.box.textContent}</div>`;
+    refs.boxHistory.insertAdjacentHTML('beforeend', textForHistory);
+  }
+
+  renderQuestion() {
+    const index = this.rundomaizer(questions.length - 1);
+    const r = `<h1 class="title"> ${questions[index]} </h1>`;
+    refs.box.insertAdjacentHTML('beforeend', r);
+  }
+
+  start() {
+    if (this.isActive) {
+      return;
+    }
+
+    this.isActive = true;
+    this.startAnimation();
+    this.renderTextHistory();
 
     this.intervalid = setTimeout(() => {
+      this.isActive = false;
       refs.text.textContent = this.counter += 1;
-      const textForHistory = `<div class="text-for-history">${refs.box.textContent}</div>`;
-
-      this.isActive = true;
-
       refs.box.textContent = '';
-      const index = this.rrr(questions.length - 1);
 
-      const r = `<h1 class="title"> ${questions[index]} </h1>`;
-      refs.boxHistory.insertAdjacentHTML('beforeend', textForHistory);
-      refs.box.classList.remove(`transform`);
-      refs.load.classList.remove(`load`);
-      refs.load.classList.add(`visually-hidden`);
-      // refs.historyText.classList.add(`text-for-history-transform`);
-      return refs.box.insertAdjacentHTML('beforeend', r);
+      this.stopAnimation();
+      this.renderQuestion();
     }, 2000);
   }
 
@@ -153,5 +157,5 @@ class Questions {
 
 const question = new Questions({});
 
-refs.startBtn.addEventListener(`click`, question.createRender.bind(question));
+refs.startBtn.addEventListener(`click`, question.start.bind(question));
 refs.stopBtn.addEventListener(`click`, question.stop.bind(question));
