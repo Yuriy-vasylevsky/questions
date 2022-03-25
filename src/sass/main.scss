@@ -11,9 +11,11 @@
   &__container {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
 
   &__cards {
+    margin-top: 20px;
   }
 }
 
@@ -26,7 +28,7 @@
   border-radius: 10px;
 
   @media screen and (max-width: 480px) {
-    max-width: 200px;
+    max-width: 150px;
     height: 260px;
   }
 
@@ -46,9 +48,19 @@
   }
 }
 
-.cards-hero:not(:last-child) {
-  margin-right: 20px;
+.cards-hero__img img {
+  object-fit: cover;
+
+  max-height: 170px;
 }
+
+.position__img img {
+  object-position: -1px -1px;
+}
+
+// .cards-hero:not(:last-child) {
+//   margin-right: 20px;
+// }
 
 .top {
   background: #212428;
