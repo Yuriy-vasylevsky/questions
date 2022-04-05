@@ -72,6 +72,8 @@
   overflow: auto;
   max-height: 300px;
   // scroll-padding-top: inherit;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .box-section-hero__title {
