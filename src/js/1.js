@@ -143,7 +143,7 @@ class Questions {
 
       this.stopAnimation();
       this.renderQuestion();
-    }, 2000);
+    }, 1500);
   }
 
   stop() {

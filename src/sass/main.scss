@@ -110,6 +110,10 @@
   background: rgba(203, 71, 160, 0.3);
   filter: blur(100px);
   border-radius: 50%;
+  animation-name: spin;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 .decor-2 {
@@ -121,6 +125,23 @@
   background: rgba(0, 255, 133, 0.2);
   filter: blur(100px);
   border-radius: 50%;
+  animation-name: spin;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+img {
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .footer {

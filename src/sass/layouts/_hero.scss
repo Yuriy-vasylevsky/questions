@@ -20,6 +20,7 @@
   padding-top: 30px;
 
   &__box {
+    position: relative;
     width: 90%;
     min-height: 120px;
     border-radius: 30px;
@@ -29,10 +30,8 @@
     border-radius: 10px;
     margin: 0 auto 20px auto;
     // text-align: center;
+    z-index: 100;
   }
-}
-
-.section-hero-btn {
 }
 
 .hero-button {
